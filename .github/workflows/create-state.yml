@@ -1,10 +1,11 @@
 name: Create Infra with Terraforn
 
-on: 
+on:
+  push:
+    branches: [dev]
+    paths: .github/workflows/terraform-devops.yml
   pull_request:
-    types:
-    - closed
-    branches: [main]
+    branches: none # [ main ]
 # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -12,7 +13,7 @@ env:
   RESOURCE_GROUP_NAME: ${{ vars.RESOURCE_GROUP_NAME }}
   STORAGE_ACCOUNT_NAME: ${{ vars.STORAGE_ACCOUNT_NAME }}
   CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
-  BLOB_NAME: ${{ vars.env.BLOB_NAME }}
+  BLOB_NAME: ${{ vars.BLOB_NAME }}
 
   WORKING_DIRECTORY: ./
 
@@ -27,7 +28,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: Run Checkov Scan
-      
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
@@ -47,7 +47,7 @@ jobs:
   deploy-azure-infra-terraform:
     name: Deploy to Azure with Terraform
     runs-on: ubuntu-latest
-    environment: dev
+    environment: Development
     needs: [scan-terraform-config]
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
