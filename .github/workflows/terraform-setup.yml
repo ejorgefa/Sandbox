@@ -128,7 +128,7 @@ jobs:
     # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
         id: format
-        run: terraform fmt -check
+        run: ../terraform/terraform fmt -check
         continue-on-error: true
 
       - name: Terraform Validate
