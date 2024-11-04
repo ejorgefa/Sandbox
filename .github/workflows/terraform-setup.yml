@@ -1,6 +1,6 @@
 name: Create Infra with Terraforn
 
-on: workflow_dispatch
+on: push
   # pull_request:
   #   types:
   #     - closed
