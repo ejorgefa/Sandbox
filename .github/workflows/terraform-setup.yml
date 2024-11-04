@@ -1,6 +1,6 @@
 name: Create Infra with Terraforn
 
-on: push
+on: workflow_dispatch
   # pull_request:
   #   types:
   #     - closed
@@ -14,7 +14,7 @@ env:
   CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
   BLOB_NAME: ${{ vars.BLOB_NAME }}
 
-  WORKING_DIRECTORY: ./
+  WORKING_DIRECTORY: ../
 
 permissions: read-all
 
