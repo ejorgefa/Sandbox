@@ -13,7 +13,7 @@ env:
   STORAGE_ACCOUNT_NAME: ${{ vars.STORAGE_ACCOUNT_NAME }}
   CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
   BLOB_NAME: ${{ vars.BLOB_NAME }}
-  WORKING_DIRECTORY: ./
+  WORKING_DIRECTORY: .github/workflows
 
 permissions: read-all
 
@@ -77,7 +77,7 @@ jobs:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSC  RIPTION_ID }}
         run: |
           # Initialize a new or existing Terraform working directory by creating initial files, 
           # loading any remote state, downloading modules, etc.
