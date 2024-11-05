@@ -9,10 +9,16 @@ on:
   workflow_dispatch:
 
 env:
-  RESOURCE_GROUP_NAME: ${{ vars.RESOURCE_GROUP_NAME }}
-  STORAGE_ACCOUNT_NAME: ${{ vars.STORAGE_ACCOUNT_NAME }}
-  CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
-  BLOB_NAME: ${{ vars.BLOB_NAME }}
+  RESOURCE_GROUP_NAME: rg-ADC-personahub-dev
+  STORAGE_ACCOUNT_NAME: staADCpersonahubdev
+  CONTAINER_NAME: tfstate
+  BLOB_NAME: terraform.tfstate
+
+  # RESOURCE_GROUP_NAME: ${{ vars.RESOURCE_GROUP_NAME }}
+  # STORAGE_ACCOUNT_NAME: ${{ vars.STORAGE_ACCOUNT_NAME }}
+  # CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
+  # BLOB_NAME: ${{ vars.BLOB_NAME }}
+
   WORKING_DIRECTORY: ./
 
 permissions: read-all
@@ -75,7 +81,7 @@ jobs:
             az version
 
             # Create resource group
-            az group create --name $RESOURCE_GROUP_NAME --location northeurope
+            az group create --name $RESOURCE_GROUP_NAME --location westeurope
 
             # Create storage account
             az storage account create --name $STORAGE_ACCOUNT_NAME \
