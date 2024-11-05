@@ -10,7 +10,7 @@ on:
 
 env:
   RESOURCE_GROUP_NAME: rg-ADC-personahub-dev
-  STORAGE_ACCOUNT_NAME: staADCpersonahubdev
+  STORAGE_ACCOUNT_NAME: staadcpersonahubdev
   CONTAINER_NAME: tfstate
   BLOB_NAME: terraform.tfstate
 
