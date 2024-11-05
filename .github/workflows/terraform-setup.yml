@@ -13,7 +13,6 @@ env:
   STORAGE_ACCOUNT_NAME: ${{ vars.STORAGE_ACCOUNT_NAME }}
   CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
   BLOB_NAME: ${{ vars.BLOB_NAME }}
-
   WORKING_DIRECTORY: ./
 
 permissions: read-all
