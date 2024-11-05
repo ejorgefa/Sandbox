@@ -15,7 +15,7 @@ env:
   BLOB_NAME: ${{ vars.BLOB_NAME }}
   WORKING_DIRECTORY: ./
 
-permissions: write-all
+permissions: read-all
 
 jobs:
   scan-terraform-config:
@@ -45,6 +45,7 @@ jobs:
   deploy-azure-infra-terraform:
     name: Deploy to Azure with Terraform
     runs-on: ubuntu-latest
+    permissions: write-all
     environment: dev
     needs: [scan-terraform-config]
 
